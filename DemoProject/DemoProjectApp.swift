@@ -28,5 +28,6 @@ struct DemoProjectApp: App {
             ContentView()
         }
         .modelContainer(sharedModelContainer)
+        .environment(ViewModel(httpManager: HTTPManager()))
     }
 }
