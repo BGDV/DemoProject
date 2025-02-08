@@ -23,7 +23,6 @@ struct JokesScreen: View {
                 ProgressView()
             }
             .frame(width: 100, height: 100)
-            .padding()
             
             Text(vm.jokeItem?.value ?? "")
                 .font(.title)
@@ -33,15 +32,16 @@ struct JokesScreen: View {
             
             Spacer()
             
-            Button("Generate") {
+            Button {
                 Task {
                     try? await vm.loadJoke()
                 }
+            } label: {
+                Text("Generate")
+                    .padding(.horizontal, 18)
             }
             .buttonStyle(.borderedProminent)
-            
         }
-//        .animation(.bouncy, value: vm.jokeItem?.value)
         .task {
             do {
                 try await vm.loadJoke()

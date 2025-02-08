@@ -10,7 +10,7 @@ import SwiftData
 
 struct ContentView: View {
     var body: some View {
-        NavigationSplitView {
+        NavigationStack {
             TabView {
                 JokesScreen()
                     .tabItem {
@@ -21,8 +21,6 @@ struct ContentView: View {
                         Label("Date", systemImage: "calendar")
                     }
             }
-        } detail: {
-            Text("Select an item")
         }
     }
 }
